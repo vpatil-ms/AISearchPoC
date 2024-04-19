@@ -1,9 +1,9 @@
 {   
-    "name" : "HRD-Docs",  
+    "name" : "hrdocs",  
     "description" : "Documents for search.",  
     "type" : "azureblob",
     "credentials" :
     { "connectionString" : "YOUR_CONNECTION_STRING"
     },  
-    "container" : { "name" : "HRDocs" }
+    "container" : { "name" : "hrdocs" }
 } 
