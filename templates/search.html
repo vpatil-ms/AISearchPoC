@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}<hr/>
+<div class="well well-large">
+<form name="refine_form" action="/search" method="GET">
+    <p>Search:{{ search_terms }}</p>
+    <p>Results:{{ search_results.get_count() }}</p>
+    <input name="search" type="hidden" value="{{ search_terms }}"/>
+
+</form>
+</div>
+{% for search_result in search_results: %}
+<div class="result">
+    <p class="resultLink"><a href="{{ search_result['url'] }}" target="_blank">{{ search_result['title'] }}</a></p>
+    <div class="panel">
+       {{search_result['content'][:500]}}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

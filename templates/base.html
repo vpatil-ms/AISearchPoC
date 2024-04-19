@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="nav navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">My Search</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar navbar-nav">
+                    <li><a href="https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python"
+                            target="_new">GitHub Samples</a></li>
+                    <li><a href="https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python"
+                            target="_new">GitHub - This Code</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h1>My Search</h1>
+    <div class="well well-large">
+        <div class="searchBoxForm">
+            <p>Enter a search term</p>
+            <form name="search_form" action="/search" method="GET">
+                <input name="search" type="text" value="{{ search_terms }}"></input>
+                <input name="submit" type="submit" value="Search"></input>
+                
+                <p>
+                    <input type="radio" id="simple" name="searchType" value="simple" {% if searchType==0 %}checked {% endif %}>
+                    <label for="simple">Simple</label>
+                    <input type="radio" id="semantic" name="searchType" value="semantic"  {% if searchType==1 %}checked {% endif %}>
+                    <label for="semantic">Semantic</label>
+                    <input type="radio" id="vector" name="searchType" value="vector"  {% if searchType==2 %}checked {% endif %}>
+                    <label for="vector">Vector</label>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}
+    </div>
+    <div class="footer footer-bottom">
+        <hr>
+        {% endblock %}
+    </div>
+</body>
+
+</html>

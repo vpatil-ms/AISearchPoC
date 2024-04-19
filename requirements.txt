@@ -1,0 +1,5 @@
+loadenv
+flask
+Azure-Core
+Azure-Search
+Azure-Search-Documents
